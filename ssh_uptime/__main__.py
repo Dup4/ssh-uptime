@@ -9,6 +9,8 @@ if __name__ == '__main__':
     machines_status = db.get()
 
     while True:
+        logger.info("Ping Test New Round")
+
         for machine in default_config.machine_list:
             status, msg = ping_test(
                 machine.host, machine.user, machine.password, machine.port)
@@ -34,4 +36,4 @@ if __name__ == '__main__':
 
         db.put(machines_status)
 
-        sleep(300)
+        sleep(30)
