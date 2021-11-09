@@ -36,4 +36,4 @@ if __name__ == '__main__':
 
         db.put(machines_status)
 
-        sleep(30)
+        sleep(5)

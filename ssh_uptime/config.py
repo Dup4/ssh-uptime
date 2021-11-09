@@ -24,5 +24,7 @@ class people:
 class config:
     def __init__(self, config_dict):
         self.email = email(config_dict['email'])
-        self.machine_list = map(lambda x: machine(x), config_dict['machine'])
-        self.people_list = map(lambda x: people(x), config_dict['people'])
+        self.machine_list = list(
+            map(lambda x: machine(x), config_dict['machine']))
+        self.people_list = list(
+            map(lambda x: people(x), config_dict['people']))
