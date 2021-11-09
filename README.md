@@ -1,20 +1,20 @@
 # ssh-uptime
 
-# Install Deps
+## Install Deps
 
 ```bash
 pip3 install -U -r requirements.txt
 ```
 
-# Use Docker
+## Use Docker
 
-## Build
+### Build
 
 ```bash
 docker build -t ssh-uptime:latest -f ./docker/Dockerfile .
 ```
 
-## Start Container
+### Start Container
 
 ```bash
 docker run \
