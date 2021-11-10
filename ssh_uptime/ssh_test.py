@@ -18,7 +18,7 @@ class SSHAgent:
                          username=self.username, password=self.password)
 
     def __enter__(self):
-        pass
+        return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.ssh.close()
@@ -35,7 +35,7 @@ class SSHAgent:
 
 def ping_test(ip: str, username: str, password: str, port: int = 22) -> tuple[Status, str]:
     try:
-        ssh_agent = SSHAgent(ip, username, password, port)
-        return ssh_agent.remote_command('echo -n ping')
+        with SSHAgent(ip, username, password, port) as ssh_agent:
+            return ssh_agent.remote_command('echo -n ping')
     except Exception as e:
         return Status.FAILURE, e
