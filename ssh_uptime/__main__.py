@@ -27,9 +27,11 @@ if __name__ == '__main__':
             if status == Status.SUCCESS:
                 machine_status.is_survival = True
                 machine_status.last_survival_time = get_time()
+                machine_status.failed_cnt = 0
 
             if status == Status.FAILURE:
-                if machine_status.is_survival:
+                machine_status.failed_cnt += 1
+                if machine_status.failed_cnt == 3:
                     warning_report(machines_status[machine.hostname])
 
                 machine_status.is_survival = False

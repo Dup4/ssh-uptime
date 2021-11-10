@@ -9,18 +9,33 @@ class machine_status:
     FIELD_HOSTNAME = 'hostname'
     FIELD_IS_SURVIVAL = 'is_survival'
     FIELD_LAST_SURVIVAL_TIME = 'last_survival_time'
+    FIELD_FAILED_CNT = 'failed_cnt'
 
     def __init__(self, machine_dict: Dict):
-        self.hostname = machine_dict[self.FIELD_HOSTNAME]
-        self.is_survival = machine_dict[self.FIELD_IS_SURVIVAL]
-        self.last_survival_time = machine_dict[self.FIELD_LAST_SURVIVAL_TIME]
+        if self.FIELD_HOSTNAME in machine_dict.keys():
+            self.hostname = machine_dict[self.FIELD_HOSTNAME]
+        else:
+            self.hostname = ''
+
+        if self.FIELD_IS_SURVIVAL in machine_dict.keys():
+            self.is_survival = machine_dict[self.FIELD_IS_SURVIVAL]
+        else:
+            self.is_survival = True
+
+        if self.FIELD_LAST_SURVIVAL_TIME in machine_dict.keys():
+            self.last_survival_time = machine_dict[self.FIELD_LAST_SURVIVAL_TIME]
+        else:
+            self.last_survival_time = None
+
+        if self.FIELD_FAILED_CNT in machine_dict.keys():
+            self.failed_cnt = machine_dict[self.FIELD_FAILED_CNT]
+        else:
+            self.failed_cnt = 0
 
 
 def get_new_machine(hostname: str) -> machine_status:
     return machine_status({
         machine_status.FIELD_HOSTNAME: hostname,
-        machine_status.FIELD_IS_SURVIVAL: True,
-        machine_status.FIELD_LAST_SURVIVAL_TIME: None,
     })
 
 
