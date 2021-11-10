@@ -1,4 +1,4 @@
-FROM python:3.10-buster
+FROM python:buster
 
 USER root
 WORKDIR /root/
