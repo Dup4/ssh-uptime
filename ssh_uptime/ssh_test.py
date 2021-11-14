@@ -15,7 +15,7 @@ class SSHAgent:
         self.ssh = paramiko.SSHClient()
         self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         self.ssh.connect(hostname=self.ip, port=port,
-                         username=self.username, password=self.password)
+                         username=self.username, password=self.password, banner_timeout=200)
 
     def __enter__(self):
         return self
