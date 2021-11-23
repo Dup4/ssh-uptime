@@ -24,6 +24,9 @@ if __name__ == '__main__':
             logger.info(
                 'Ping Test - Hostname:{}, Status:{}, Msg:{}'.format(machine.hostname, status, msg))
 
+            if msg == "Error reading SSH protocol banner":
+                status = Status.SUCCESS
+
             if status == Status.SUCCESS:
                 machine_status.is_survival = True
                 machine_status.last_survival_time = get_time()
