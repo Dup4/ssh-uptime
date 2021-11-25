@@ -21,7 +21,7 @@ if __name__ == '__main__':
             else:
                 machine_status = machines_status[machine.hostname]
 
-            if msg.strip() == "Error reading SSH protocol banner":
+            if str(msg).strip() == "Error reading SSH protocol banner":
                 status = Status.SUCCESS
 
             logger.info(
