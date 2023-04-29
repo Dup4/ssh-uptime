@@ -1,0 +1,14 @@
+email:
+    smtp_server: mail.example.com
+    from_addr: alert@example.com
+    password: your_password
+    from_user: your_user
+machine:
+    - hostname: example
+      host: example.com
+      port: 22
+      user: root
+      password: host_password
+people:
+    - user: Dup4
+      email: alert@dup4.com
